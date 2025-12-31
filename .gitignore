@@ -21,3 +21,15 @@ logs/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Vector stores
+*.faiss
+*.db
+
+# Documents
+data/
+documents/
+
+# Models
+models/
+
