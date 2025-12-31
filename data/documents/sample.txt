@@ -1,0 +1,9 @@
+The key feature of this idiomatic usage is that the majority of code is simply creating a module level logger with getLogger(__name__), 
+and using that logger to do any needed logging. This is concise, while allowing downstream code fine-grained control if needed. 
+Logged messages to the module-level logger get forwarded to handlers of loggers in higher-level modules, all the way up to the highest-level logger known as the root logger; 
+this approach is known as hierarchical logging.
+
+For logging to be useful, it needs to be configured: setting the levels and destinations for each logger, potentially changing how specific modules log, 
+often based on command-line arguments or application configuration. In most cases, like the one above, only the root logger needs to be so configured,
+ since all the lower level loggers at module level eventually forward their messages to its handlers. basicConfig() provides a quick way to configure 
+ the root logger that handles many use cases.
